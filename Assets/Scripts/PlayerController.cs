@@ -6,7 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed;
-    public Rigidbody2D theRB; 
+    public Rigidbody2D theRB;
+
+
+    public Transform bottomLeftLimit, topRightLimit;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.position.x, topRightLimit.position.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.position.y, topRightLimit.position.y), transform.position.z);
     }
 }
