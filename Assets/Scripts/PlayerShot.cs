@@ -8,6 +8,8 @@ public class PlayerShot : MonoBehaviour
     public float shotSpeed = 7f;
     public GameObject impactEffect;
 
+    public GameObject objectExplosion;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class PlayerShot : MonoBehaviour
 
         if(other.tag == "Space Object")
         {
+            Instantiate(objectExplosion, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
         }
 
