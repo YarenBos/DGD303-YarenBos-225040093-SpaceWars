@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 1467864125}
   - component: {fileID: 1467864124}
   - component: {fileID: 1467864123}
+  - component: {fileID: 1467864127}
   m_Layer: 0
   m_Name: meteor-1
   m_TagString: Space Object
@@ -1310,6 +1311,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467864127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467864122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c30d3f19d364946b947b92dc1f7f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1539291233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,9 +1518,10 @@ GameObject:
   - component: {fileID: 1856083319}
   - component: {fileID: 1856083322}
   - component: {fileID: 1856083323}
+  - component: {fileID: 1856083324}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1661,6 +1675,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.39583334
+--- !u!114 &1856083324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856083318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1350e4115ce5b0d45a6cba935e748cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 1
+  deathEffect: {fileID: 7812638070597188702, guid: 9a2ef50ca8e4ef54ab4c271de5d49c10, type: 3}
 --- !u!1 &2016108611
 GameObject:
   m_ObjectHideFlags: 0
