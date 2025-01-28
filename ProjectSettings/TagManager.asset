@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - PlayerShot
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Space Objects
     uniqueID: 3836384365
+    locked: 0
+  - name: Shots
+    uniqueID: 468480813
     locked: 0
   - name: Player
     uniqueID: 3631032277

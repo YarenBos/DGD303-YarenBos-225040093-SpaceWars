@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public Transform bottomLeftLimit, topRightLimit;
 
+    public Transform shotPoint;
+    public GameObject shot;
+
 
 
     // Start is called before the first frame update
@@ -25,5 +28,11 @@ public class PlayerController : MonoBehaviour
         theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.position.x, topRightLimit.position.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.position.y, topRightLimit.position.y), transform.position.z);
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(shot, shotPoint.position, shotPoint.rotation);
+        }
+
     }
 }
