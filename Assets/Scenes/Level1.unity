@@ -2191,10 +2191,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Blue
       objectReference: {fileID: 0}
-    - target: {fileID: 6774632626071417547, guid: 0d63342bc751c384184c86cddce54cf3, type: 3}
-      propertyPath: timeBetweenShots
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2208,30 +2204,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: startDirection.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: startDirection.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: changedDirection.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: changedDirection.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: changeDirectionXPoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720761265277177339, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
-      propertyPath: shouldChangeDirection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4801484470482958544, guid: 6295e7b2014280645a55b4115bcf4529, type: 3}
       propertyPath: m_Name
       value: Enemy Purple
