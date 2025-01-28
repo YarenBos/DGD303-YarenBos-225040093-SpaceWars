@@ -6,6 +6,7 @@ public class PlayerShot : MonoBehaviour
 {
 
     public float shotSpeed = 7f;
+    public GameObject impactEffect;
 
 
     // Start is called before the first frame update
@@ -23,6 +24,14 @@ public class PlayerShot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Instantiate(impactEffect, transform.position, transform.rotation);
+
+        if(other.tag == "Space Object")
+        {
+            Destroy(other.gameObject);
+        }
+
+
         Destroy(this.gameObject);
     }
 
