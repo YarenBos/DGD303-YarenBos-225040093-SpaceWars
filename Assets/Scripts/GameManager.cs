@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
 
     private int highScore = 500;
 
+    public bool levelEnding;
+
+    private int levelScore;
+
     private void Awake()
     {
         Instance = this;
@@ -24,16 +28,22 @@ public class GameManager : MonoBehaviour
     {
         UIManager.Instance.livesText.text = "x " + currentLives;
 
-        UIManager.Instance.scoreText.text = "Score: " + currentScore;
+        
 
         highScore = PlayerPrefs.GetInt("HighScore");
 
         UIManager.Instance.hiScoreText.text = "Hi-Score: " + highScore;
+
+        currentScore = PlayerPrefs.GetInt("CurrentScore");
+        UIManager.Instance.scoreText.text = "Score: " + currentScore;
     }
 
     void Update()
     {
-        
+        if(levelEnding)
+        {
+            PlayerController.instance.transform.position += new Vector3(PlayerController.instance.boostSpeed * Time.deltaTime, 0f, 0f);
+        }
     }
 
     public void KillPlayer()
@@ -69,6 +79,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         currentScore += scoreToAdd;
+        levelScore += scoreToAdd; 
         UIManager.Instance.scoreText.text = "Score: " + currentScore;
 
         if(currentScore > highScore)
@@ -82,6 +93,25 @@ public class GameManager : MonoBehaviour
     public IEnumerator EndLevelCo()
     {
         UIManager.Instance.levelEndScreen.SetActive(true);
+        PlayerController.instance.stopMovement = true;
+        levelEnding = true;
+        MusicController.instance.PlayVictory();
+
         yield return new WaitForSeconds(.5f);
+
+        UIManager.Instance.endLevelScore.text = "Level Score: " + levelScore;
+        UIManager.Instance.endLevelScore.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(.5f);
+
+        PlayerPrefs.SetInt("CurrentScore", currentScore);
+        UIManager.Instance.endCurrentScore.text = "Total Score: " + currentScore;
+        UIManager.Instance.endCurrentScore.gameObject.SetActive(true);
+
+        if(currentScore == highScore)
+        {
+            yield return new WaitForSeconds(.5f);
+            UIManager.Instance.highScoreNotice.SetActive(true);
+        }
     }
 }
