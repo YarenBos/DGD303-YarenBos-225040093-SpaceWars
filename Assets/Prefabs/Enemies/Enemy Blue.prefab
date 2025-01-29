@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d294b31a5d6c845449fe0e0bdb33b39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
-  startDirection: {x: -1, y: 0.15}
+  moveSpeed: 2
+  startDirection: {x: -1, y: 0}
   shouldChangeDirection: 1
-  changeDirectionXPoint: 6
-  changedDirection: {x: -0.8, y: -0.3}
+  changeDirectionXPoint: -2
+  changedDirection: {x: -0.5, y: -0.5}
   shotToFire: {fileID: 6877009573305937025, guid: 4fdae20f0b12e834aad385cd75a758a0, type: 3}
   firePoint: {fileID: 8861940144731393430}
   timeBetweenShots: 2
