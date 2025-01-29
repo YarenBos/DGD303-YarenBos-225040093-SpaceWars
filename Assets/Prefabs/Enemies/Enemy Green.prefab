@@ -111,6 +111,12 @@ MonoBehaviour:
   canShoot: 1
   currentHealth: 3
   deathEffect: {fileID: 4836246895013964721, guid: 1b803224c01d5c24394b579790ca75b6, type: 3}
+  scoreValue: 100
+  powerUps:
+  - {fileID: 7846290076194390311, guid: b8fab22d73b475349bc6c26070daa0f7, type: 3}
+  - {fileID: 1412854347708144325, guid: d782c96583efa7d4db97aed37a0ee8c4, type: 3}
+  - {fileID: 717976841831213741, guid: 3268c7e84466e4c4fa308be0a27c2b96, type: 3}
+  dropSuccessRate: 30
 --- !u!61 &222839798809443695
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -27,6 +27,9 @@ public class EnemyController : MonoBehaviour
 
     public int scoreValue = 100;
 
+    public GameObject[] powerUps;
+    public int dropSuccessRate = 15;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +75,13 @@ public class EnemyController : MonoBehaviour
         {
 
             GameManager.Instance.AddScore(scoreValue);
+
+            int randomChance = Random.Range(0, 100);
+            if (randomChance < dropSuccessRate)
+            {
+                int randomPick = Random.Range(0, powerUps.Length);
+                Instantiate(powerUps[randomPick], transform.position, transform.rotation);
+            }
 
             Destroy(gameObject); 
             Instantiate(deathEffect, transform.position, transform.rotation);
