@@ -78,4 +78,10 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", highScore);
         }
     }
+
+    public IEnumerator EndLevelCo()
+    {
+        UIManager.Instance.levelEndScreen.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+    }
 }
