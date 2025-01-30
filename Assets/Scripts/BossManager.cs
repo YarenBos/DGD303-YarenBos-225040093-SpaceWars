@@ -10,6 +10,8 @@ public class BossManager : MonoBehaviour
 
     public int currentHealth = 100;
 
+    public BattleShot[] shotsToFire;
+
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class BossManager : MonoBehaviour
         UIManager.Instance.bossHealthSlider.maxValue = currentHealth;
         UIManager.Instance.bossHealthSlider.value = currentHealth;
         UIManager.Instance.bossHealthSlider.gameObject.SetActive(true);
+
+        MusicController.instance.PlayBoss();
     }
 
     // Update is called once per frame
@@ -32,7 +36,8 @@ public class BossManager : MonoBehaviour
 
     public void HurtBoss()
     {
-        currentHealth--; 
+        currentHealth--;
+        UIManager.Instance.bossHealthSlider.value = currentHealth;
 
         if (currentHealth <= 0)
         {
@@ -40,4 +45,13 @@ public class BossManager : MonoBehaviour
             UIManager.Instance.bossHealthSlider.gameObject.SetActive(false);
         }
     }
+}
+
+[System.Serializable]
+public class BattleShot
+{
+    public GameObject theShot;
+    public float timeBetweenShots;
+    public float shotCounter;
+    public Transform firePoint;
 }
