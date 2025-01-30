@@ -4307,6 +4307,7 @@ MonoBehaviour:
   endLevelScore: {fileID: 436974688}
   endCurrentScore: {fileID: 1798775248}
   highScoreNotice: {fileID: 882786283}
+  pauseScreen: {fileID: 0}
 --- !u!1 &1653705059
 GameObject:
   m_ObjectHideFlags: 0
