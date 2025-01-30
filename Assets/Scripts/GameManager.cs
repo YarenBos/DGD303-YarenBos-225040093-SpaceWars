@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     private int levelScore;
 
+    public float waitForLevelEnd = 5f;
+
+    public string nextLevel;
+
     private void Awake()
     {
         Instance = this;
@@ -26,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        currentLives = PlayerPrefs.GetInt("CurrentLives");
         UIManager.Instance.livesText.text = "x " + currentLives;
 
         
@@ -43,6 +49,11 @@ public class GameManager : MonoBehaviour
         if(levelEnding)
         {
             PlayerController.instance.transform.position += new Vector3(PlayerController.instance.boostSpeed * Time.deltaTime, 0f, 0f);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause();
         }
     }
 
@@ -64,6 +75,7 @@ public class GameManager : MonoBehaviour
             WaveManager.instance.canSpawnWaves = false;
 
             MusicController.instance.PlayGameOver();
+            PlayerPrefs.SetInt("HighScore", highScore);
 
         }
     }
@@ -86,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             highScore = currentScore;
             UIManager.Instance.hiScoreText.text = "Hi-Score: " + highScore;
-            PlayerPrefs.SetInt("HighScore", highScore);
+            //PlayerPrefs.SetInt("HighScore", highScore);
         }
     }
 
@@ -112,6 +124,24 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             UIManager.Instance.highScoreNotice.SetActive(true);
+        }
+
+        PlayerPrefs.SetInt("HighScore", highScore);
+        PlayerPrefs.SetInt("CurrentLives", currentLives);
+
+        yield return new WaitForSeconds(waitForLevelEnd);
+
+        SceneManager.LoadScene(nextLevel);
+    }
+
+    public void PauseUnpause()
+    {
+        if(UIManager.Instance.pauseScreen.activeInHierarchy)
+        {
+            UIManager.Instance.pauseScreen.SetActive(false);
+        } else
+        {
+            UIManager.Instance.pauseScreen.SetActive(true) ;
         }
     }
 }

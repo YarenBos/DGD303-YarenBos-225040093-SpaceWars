@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     public Text endLevelScore, endCurrentScore;
     public GameObject highScoreNotice;
 
+    public GameObject pauseScreen;
+
     private void Awake()
     {
         Instance = this;
