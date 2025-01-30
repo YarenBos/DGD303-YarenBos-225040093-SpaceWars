@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 
     public string firstlevel;
 
+    public string creditsScene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,6 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
-
+        SceneManager.LoadScene(creditsScene);
     }
 }
