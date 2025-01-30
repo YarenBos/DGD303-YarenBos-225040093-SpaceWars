@@ -53,6 +53,20 @@ public class BossManager : MonoBehaviour
 
             currentPhase++;
 
+            bossAnim.SetInteger("Phase", currentPhase + 1);
+        }
+        else
+        {
+            for (int i = 0; i < phases[currentPhase].phaseShots.Length; i++)
+            {
+                phases[currentPhase].phaseShots[i].shotCounter -= Time.deltaTime;
+
+                if (phases[currentPhase].phaseShots[i].shotCounter <= 0)
+                {
+                    phases[currentPhase].phaseShots[i].shotCounter = phases[currentPhase].phaseShots[i].timeBetweenShots;
+                    Instantiate(phases[currentPhase].phaseShots[i].theShot, phases[currentPhase].phaseShots[i].firePoint.position, phases[currentPhase].phaseShots[i].firePoint.rotation);
+                }
+            }
         }
     }
 
