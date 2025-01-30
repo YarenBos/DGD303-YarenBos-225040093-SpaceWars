@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4795316721491148061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5453086082193270388}
+  - component: {fileID: 5473401154411950511}
+  m_Layer: 0
+  m_Name: Wave Spawn Point 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5453086082193270388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795316721491148061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5473401154411950511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795316721491148061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8aa775ca5a23a748bf5775f8aebd2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - timeToSpawn: 3.5
+    theWave: {fileID: 1311315399878146639, guid: d3564d068f8993e47939d0b5f4ac1f8b, type: 3}
+  - timeToSpawn: 3.5
+    theWave: {fileID: 2025494238581013744, guid: c285e9cb63ec9b04e9541e825d6f636f, type: 3}
+  - timeToSpawn: 4.5
+    theWave: {fileID: 1311315399878146639, guid: d3564d068f8993e47939d0b5f4ac1f8b, type: 3}
+  - timeToSpawn: 4.5
+    theWave: {fileID: 7231434295953640905, guid: 2cfed7d8373b0de4e9a6e592fbf6fd32, type: 3}
+  currentWave: 0
+  timeToNextWave: 0
+  canSpawnWaves: 1
