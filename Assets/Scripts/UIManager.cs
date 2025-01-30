@@ -24,7 +24,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseScreen;
 
-    public string mainMenuName = "MainMenu"; 
+    public string mainMenuName = "MainMenu";
+
+    public Slider bossHealthSlider;
+    public Text bossName;
 
     private void Awake()
     {
