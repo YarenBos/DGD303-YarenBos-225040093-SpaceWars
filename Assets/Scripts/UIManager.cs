@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseScreen;
 
+    public string mainMenuName = "MainMenu"; 
+
     private void Awake()
     {
         Instance = this;
@@ -50,7 +52,8 @@ public class UIManager : MonoBehaviour
 
     public void QuitToMain()
     {
-
+        SceneManager.LoadScene(mainMenuName);
+        Time.timeScale = 1f;
     }
 
     public void Resume()
