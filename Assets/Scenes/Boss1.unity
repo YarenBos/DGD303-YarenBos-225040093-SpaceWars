@@ -167,6 +167,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4363307091571456343, guid: 1d3ea50753750a64ea848777ed72adf5, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511271089207238931, guid: 1d3ea50753750a64ea848777ed72adf5, type: 3}
+      propertyPath: canSpawnWaves
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8021466786889491328, guid: 1d3ea50753750a64ea848777ed72adf5, type: 3}
@@ -687,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4795316721491148061, guid: b1c4d6adce95ee54e951643f238a6b27, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453086082193270388, guid: b1c4d6adce95ee54e951643f238a6b27, type: 3}
       propertyPath: m_LocalPosition.x
@@ -727,6 +731,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5453086082193270388, guid: b1c4d6adce95ee54e951643f238a6b27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473401154411950511, guid: b1c4d6adce95ee54e951643f238a6b27, type: 3}
+      propertyPath: canSpawnWaves
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1070,16 +1078,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: SquidTron 2000
-  currentHealth: 100
-  shotsToFire:
-  - theShot: {fileID: 3114711204310291252, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-    timeBetweenShots: 1
-    shotCounter: 0.5
-    firePoint: {fileID: 349034243}
-  - theShot: {fileID: 0}
-    timeBetweenShots: 1
-    shotCounter: 0
-    firePoint: {fileID: 5597032646445322090}
+  currentHealth: 10
+  phases:
+  - phaseShots:
+    - theShot: {fileID: 3114711204310291252, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
+      timeBetweenShots: 1
+      shotCounter: 0.5
+      firePoint: {fileID: 349034243}
+    - theShot: {fileID: 3114711204310291252, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
+      timeBetweenShots: 1
+      shotCounter: 0
+      firePoint: {fileID: 1396294293}
+    healthToEndPhase: 5
+    removeAtPhaseEnd: {fileID: 682613869}
+    addAtPhaseEnd: {fileID: 7434906815251275015, guid: f98a5880250c5ca47ab8e19bf9d4b3d9, type: 3}
+    newSpawnPoint: {fileID: 682613870}
+  - phaseShots: []
+    healthToEndPhase: 0
+    removeAtPhaseEnd: {fileID: 0}
+    addAtPhaseEnd: {fileID: 0}
+    newSpawnPoint: {fileID: 0}
+  currentPhase: 0
+  bossAnim: {fileID: 1545989608}
 --- !u!1001 &1901321575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1270,68 +1290,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2086bfdcba56d45b156362877397ec, type: 3}
---- !u!1001 &5597032646445322089
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3114711204310291252, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_Name
-      value: BossShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
---- !u!4 &5597032646445322090 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8938819237212480761, guid: 233c3effd0232e24db90fc6348ae092b, type: 3}
-  m_PrefabInstance: {fileID: 5597032646445322089}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1348,4 +1306,3 @@ SceneRoots:
   - {fileID: 1277605260}
   - {fileID: 388988958}
   - {fileID: 864600492}
-  - {fileID: 5597032646445322089}
